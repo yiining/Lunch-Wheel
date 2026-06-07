@@ -1,0 +1,129 @@
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+
+<!-- Splash Screen -->
+<div id="splash">
+  <p class="splash-text">What's for lunch?</p> 
+</div>
+
+
+<!-- Main page -->
+<div class="main-pg">
+    <h1 class="title">Today's vibe?</h1>
+    <div class="loading-msg"  id="loadingMsg">loading data...</div>
+
+    <!-- spin wheel -->
+    <div class="wheel-wrp" id="wheelWrp" style="display: none;">
+        <div class="pointer"></div>
+        <canvas id="wheel"></canvas>
+    </div>
+    <button class="spin-btn" id="spinBtn" style="display: none;">spin!</button>
+    <button class="sync-btn" id="syncBtn" style="display: none;">sync the latest data</button>
+
+    <button class="recommend-btn" id="recommendBtn">Recommend</button>
+    <button class="feedback-btn" id="feedbackBtn">💬</button>
+</div>
+
+
+<!-- Result Window -->
+<div class="res-wdw" id="resWdw">
+    <div class="res">
+    
+        <!-- restaurant -->
+        <div class="res-category" id="resCategory"></div>
+        <div class="res-name" id="resName"></div>
+        <div class="res-info" id="resInfo"></div>
+                        
+        <div class="res-delivery-group" id="resDeliveryGroup">
+            <a class="delivery-btn uber" id="linkUber" href="#" target="_blank">Uber Eats</a>
+            <a class="delivery-btn panda" id="linkPanda" href="#" target="_blank">Foodpanda</a>
+            <a class="delivery-btn other" id="linkOther" href="#" target="_blank">Other</a>
+        </div>
+
+        <!-- action -->
+        <div class="res-actions">
+            <button class="btn-respin" id="btnRespin">re-spin</button>
+            <button class="btn-confirm" id="btnConfirm">eat this!</button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Recommendation -->
+<div class="recommend-pg" id="recommendPg">
+    <div class="rec-header">
+        <button class="rec-back" id="recBack">← </button>
+        <span class="rec-title">Recommend one...</span>
+    </div>
+
+    <!-- form -->
+    <div class="rec-form">
+
+        <div class="field">
+            <label>Restaurant Name<span class="required">*</span> </label>
+            <input type="text" id="rec-name">
+            <div class="field-error" id="err-name">Please fill the name.</div>
+        </div>
+
+        <div class="field">
+            <label>Tags</label>
+            <div class="tag-group" id="tagGroup"></div>
+        </div>
+
+        <div class="field">
+            <label>Price range</label>
+            <div class="price-group" id="priceGroup">
+                <button class="price-btn" data-val="$">150 ↓</button>
+                <button class="price-btn" data-val="$$">150-250</button>
+                <button class="price-btn" data-val="$$$">250 ↑</button>
+            </div>
+        </div>
+
+        <div class="field">
+        <label>Rate</label>
+        <div class="star-group" id="starGroup">
+            <span class="star" data-val="1">★</span>
+            <span class="star" data-val="2">★</span>
+            <span class="star" data-val="3">★</span>
+            <span class="star" data-val="4">★</span>
+            <span class="star" data-val="5">★</span>
+        </div>
+        </div>
+
+        <div class="field">
+            <label>Delivery link</label>
+            <input type="url" id="uber-delivery" placeholder="Uber Eats">
+            <input type="url" id="panda-delivery" placeholder="Foodpanda">
+            <input type="url" id="other-delivery" placeholder="Other (own site, delivery...)">
+        </div>
+
+        <div class="field">
+            <label>Note</label>
+            <textarea id="rec-note" rows="3" placeholder="Anything to share? (Special dish, ur fav...)"></textarea>
+        </div>
+
+        <!-- submit -->
+        <div class="rec-actions">
+            <button class="rec-clear" id="recClear">clear</button>
+            <button class="rec-submit" id="recSubmit">submit</button>
+        </div>
+        <div class="submit-msg" id="submitMsg"></div>
+
+    </div>
+</div>
+
+
+<!-- Feedback Window -->
+<div class="feedback-wdw" id="feedbackWdw">
+  <div class="feedback-box">
+    <div class="feedback-header">
+      <span class="feedback-title">Feedback / Debug</span>
+      <button class="feedback-close" id="feedbackClose">✕</button>
+    </div>
+    <p class="feedback-desc">Share your feedback or help us debug!</p>
+    <textarea class="feedback-textarea" id="feedbackText" rows="5" placeholder="Type anything here..."></textarea>
+    <button class="feedback-submit" id="feedbackSubmit">Submit</button>
+    <div class="submit-msg" id="feedbackMsg"></div>
+  </div>
+</div>
