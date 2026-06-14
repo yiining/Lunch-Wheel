@@ -291,7 +291,35 @@ function closeModal() {
 }
 
 if (btnRespin) btnRespin.addEventListener('click', () => { showRestaurant(currentCategory); });
-if (btnConfirm) btnConfirm.addEventListener('click', closeModal);
+
+if (btnConfirm) {
+  btnConfirm.addEventListener('click', () => {
+    const storeName = document.getElementById('resName').textContent;
+    
+    if (storeName) {
+      navigator.clipboard.writeText(storeName).then(() => {
+        closeModal();
+        
+        const toast = document.getElementById('copyToast');
+        if (toast) {
+          setTimeout(() => {
+            toast.classList.add('show');
+          }, 100);
+          
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 1600);
+        }
+      }).catch(err => {
+        console.error('Could not copy text: ', err);
+        closeModal();
+      });
+    } else {
+      closeModal();
+    }
+  });
+}
+
 if (resWdw) resWdw.addEventListener('click', (e) => { if (e.target === resWdw) closeModal(); });
 
 async function loadData(forceRefresh = false) {
